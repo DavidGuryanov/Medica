@@ -458,7 +458,7 @@ export const PopupDarkThemeRoundedButton = ({
   );
 };
 
-// Кнопки с иконками предназначений
+// Кнопки с иконками
 
 export const PrimaryRoundedButtonPlay = ({onPress}: UniversalButtonsProps) => {
   return (
