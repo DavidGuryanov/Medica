@@ -17,6 +17,7 @@ import {
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import Onboarding from './src/screens/Onboarding';
+import UniversalButtons from './src/components/UniversalButtons';
 
 export type RootStackParamList = {
   Onboarding: undefined;
@@ -48,6 +49,8 @@ function HomeScreen({navigation}: HomeScreenProps) {
   );
 }
 
+const onPress = () => console.log('');
+
 function LogIn({navigation}: SignInScreenProps) {
   return (
     <SafeAreaView>
@@ -60,6 +63,11 @@ function LogIn({navigation}: SignInScreenProps) {
         onPress={() => navigation.navigate('Onboarding')}
       />
       <Button title="Go back" onPress={() => navigation.goBack()} />
+      <UniversalButtons
+        title={'Privet'}
+        onPress={onPress}
+        isPrimaryRoundedButton
+      />
     </SafeAreaView>
   );
 }

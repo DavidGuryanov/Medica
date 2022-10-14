@@ -1,0 +1,128 @@
+import {StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  shadowProp: {
+    shadowColor: '#CCF',
+    shadowOffset: {width: 4, height: 8},
+    shadowOpacity: 0.25,
+    shadowRadius: 24,
+  },
+  button: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 58,
+    maxWidth: 380,
+    width: '100%',
+    marginLeft: 24,
+    marginRight: 24,
+    marginBottom: 48,
+    top: 280, // временно
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 18,
+    paddingBottom: 18,
+  },
+  miniButton: {
+    width: '52%',
+  },
+  svgBusket: {
+    position: 'absolute',
+    width: 16.67,
+    height: 16.67,
+    left: 130.67,
+    top: 20.67,
+    bottom: 20.67,
+    right: 232.67,
+  },
+  svgArrow: {
+    position: 'absolute',
+    width: 15,
+    height: 10,
+    left: 233.5,
+    top: 24,
+    bottom: 24,
+    right: 131.5,
+  },
+  svgPlay: {
+    position: 'absolute',
+    width: 16.67,
+    height: 16.67,
+    left: 90.17,
+    top: 20.67,
+    bottom: 20.67,
+    right: 273.17,
+  },
+  svgMessage: {
+    position: 'absolute',
+    width: 16.67,
+    height: 16.67,
+    left: 67.67,
+    top: 20.67,
+    bottom: 20.67,
+    right: 295.67,
+  },
+  svgPhone: {
+    position: 'absolute',
+    width: 15.83,
+    height: 15.83,
+    left: 64.08,
+    top: 21.08,
+    bottom: 21.08,
+    right: 300.08,
+  },
+  svgVideo: {
+    position: 'absolute',
+    width: 16.67,
+    height: 12.5,
+    left: 60.67,
+    top: 22.75,
+    bottom: 22.75,
+    right: 302.67,
+  },
+  buttonPrimaryRounded: {
+    backgroundColor: '#246BFD',
+    borderRadius: 100,
+  },
+  buttonSecondaryRounded: {
+    backgroundColor: '#E9F0FF',
+    borderRadius: 100,
+  },
+  buttonDisabledRounded: {
+    backgroundColor: '#3062C8',
+    borderRadius: 100,
+  },
+  buttonPrimaryFilled: {
+    backgroundColor: '#246BFD',
+    borderRadius: 16,
+  },
+  buttonSecondaryFilled: {
+    backgroundColor: '#E9F0FF',
+    borderRadius: 16,
+  },
+  buttonDisabledFilled: {
+    backgroundColor: '#3062C8',
+    borderRadius: 16,
+  },
+  buttonDarkThemeRounded: {
+    backgroundColor: '#35383F',
+    borderRadius: 100,
+  },
+  buttonDarkThemeFilled: {
+    backgroundColor: '#35383F',
+    borderRadius: 16,
+  },
+  text: {
+    fontFamily: 'Urbanist',
+    weight: 700,
+    size: 16,
+    lineHeight: 22.4,
+    letter: 0.2,
+    alignItems: 'center',
+    color: 'white',
+  },
+  secondaryText: {
+    color: '#246BFD',
+  },
+});
