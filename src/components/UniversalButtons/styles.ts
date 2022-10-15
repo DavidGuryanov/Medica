@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 18,
   },
   miniButton: {
-    width: '52%',
+    width: '50%',
   },
   svgBusket: {
     position: 'absolute',
