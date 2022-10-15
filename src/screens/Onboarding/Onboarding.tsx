@@ -1,63 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, useColorScheme, Image} from 'react-native';
+import {Text, View, useColorScheme, Image} from 'react-native';
+import styles from './styles';
 import Logo from '../../assets/logo.svg';
 import {useLoader} from '../../components/Loader/Loader';
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-  },
-  logoContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    marginHorizontal: 'auto',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlignVertical: 'center',
-    height: '90%',
-  },
-  text: {
-    fontWeight: '700',
-    fontSize: 48,
-    fontFamily: 'Urbanist',
-    color: 'red',
-    marginLeft: 16,
-  },
-  subText: {
-    fontFamily: 'Urbanist',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    fontSize: 18,
-    color: '#212121',
-    marginHorizontal: 20,
-    textAlign: 'center',
-  },
-  loaderContainer: {
-    position: 'absolute',
-    bottom: '15%',
-    width: '100%',
-  },
-  welcomeImage: {
-    width: '130%',
-    marginHorizontal: '-15%',
-    resizeMode: 'contain',
-    height: 430,
-    flexGrow: 1,
-    maxHeight: '57%',
-  },
-  welcomeContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '95%',
-  },
-  textContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    flexGrow: 2,
-  },
-});
+import Slides from './components/Slides';
 
 enum STEPS {
   loading = 0,
@@ -104,11 +50,16 @@ const Onboarding = () => {
   const [LoaderComp, setLoader] = useLoader();
   const [step, setStep] = useState(STEPS.loading);
   const colorScheme = useColorScheme() || 'light';
+  // const colorScheme = 'light';
   useEffect(() => {
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
       setStep(STEPS.welcome);
+      setTimeout(() => {
+        // setLoader(false);
+        setStep(STEPS.slides);
+      }, 2500);
     }, 2500);
   }, [setLoader]);
 
@@ -149,7 +100,7 @@ const Onboarding = () => {
         </View>
       </View>
     ),
-    [STEPS.slides]: <Text>Slides</Text>,
+    [STEPS.slides]: <Slides />,
   };
 
   return (
