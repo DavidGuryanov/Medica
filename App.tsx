@@ -9,7 +9,14 @@
  */
 
 import React from 'react';
-import {Button, SafeAreaView, StatusBar, Text, View} from 'react-native';
+import {
+  Button,
+  SafeAreaView,
+  StatusBar,
+  Text,
+  useColorScheme,
+  View,
+} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {
@@ -17,6 +24,7 @@ import {
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import Onboarding from './src/screens/Onboarding';
+import {darkTheme, theme} from './src/utils/theme';
 
 export type RootStackParamList = {
   Onboarding: undefined;
@@ -33,6 +41,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
   return (
     <SafeAreaView>
       <StatusBar />
+      {/* eslint-disable-next-line react-native/no-inline-styles */}
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Home Screen</Text>
       </View>
@@ -52,6 +61,7 @@ function LogIn({navigation}: SignInScreenProps) {
   return (
     <SafeAreaView>
       <StatusBar />
+      {/* eslint-disable-next-line react-native/no-inline-styles */}
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Log In</Text>
       </View>
@@ -64,23 +74,28 @@ function LogIn({navigation}: SignInScreenProps) {
   );
 }
 
+export const ThemeContext = React.createContext(theme);
+
 const App = () => {
+  const colorScheme = useColorScheme() || 'light';
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Onboarding"
-          component={Onboarding}
-          options={{title: 'Onboarding'}}
-        />
-        <Stack.Screen
-          name="Log In"
-          component={LogIn}
-          options={{title: 'Log In'}}
-        />
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ThemeContext.Provider value={colorScheme === 'light' ? theme : darkTheme}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Onboarding"
+            component={Onboarding}
+            options={{title: 'Onboarding'}}
+          />
+          <Stack.Screen
+            name="Log In"
+            component={LogIn}
+            options={{title: 'Log In'}}
+          />
+          <Stack.Screen name="Home" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ThemeContext.Provider>
   );
 };
 
