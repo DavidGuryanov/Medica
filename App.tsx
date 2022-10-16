@@ -9,7 +9,14 @@
  */
 
 import React from 'react';
-import {Button, SafeAreaView, StatusBar, Text, View} from 'react-native';
+import {
+  Button,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  Text,
+  View,
+} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {
@@ -17,6 +24,7 @@ import {
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
 import Onboarding from './src/screens/Onboarding';
+import UniversalButtons from './src/components/UniversalButtons';
 
 export type RootStackParamList = {
   Onboarding: undefined;
@@ -48,6 +56,8 @@ function HomeScreen({navigation}: HomeScreenProps) {
   );
 }
 
+const onPress = () => console.log('');
+
 function LogIn({navigation}: SignInScreenProps) {
   return (
     <SafeAreaView>
@@ -60,6 +70,149 @@ function LogIn({navigation}: SignInScreenProps) {
         onPress={() => navigation.navigate('Onboarding')}
       />
       <Button title="Go back" onPress={() => navigation.goBack()} />
+      <ScrollView
+        contentContainerStyle={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-around',
+          backgroundColor: 'grey',
+          height: 2300,
+          padding: 10,
+          paddingBottom: 100,
+        }}>
+        <UniversalButtons
+          title={'Round + primary'}
+          onPress={onPress}
+          rounded
+          primary
+        />
+        <UniversalButtons title={'Im primary'} onPress={onPress} primary />
+        <UniversalButtons
+          title={'Round + secondary'}
+          onPress={onPress}
+          rounded
+        />
+        <UniversalButtons
+          title={'Round + primary + disabled'}
+          onPress={onPress}
+          rounded
+          primary
+          disabled
+        />
+        <UniversalButtons
+          title={'Lessrounded + primary'}
+          onPress={onPress}
+          primary
+        />
+        <UniversalButtons title={'Lessrounded + secondary'} onPress={onPress} />
+        <UniversalButtons
+          title={'Disabled + primary'}
+          onPress={onPress}
+          disabled
+          primary
+        />
+        <UniversalButtons
+          title={'Dark + primary + rounded'}
+          onPress={onPress}
+          dark
+          primary
+          rounded
+        />
+        <UniversalButtons
+          title={'Dark + primary + lessrounded'}
+          onPress={onPress}
+          dark
+          primary
+        />
+        <UniversalButtons
+          title={'Round + mini + primary'}
+          onPress={onPress}
+          primary
+          rounded
+          mini
+        />
+        <UniversalButtons
+          title={'Round + mini + secondary'}
+          onPress={onPress}
+          rounded
+          mini
+        />
+        <UniversalButtons
+          title={'mini disabled'}
+          onPress={onPress}
+          rounded
+          disabled
+          mini
+        />
+        <UniversalButtons
+          title={'mini + pr + disabled'}
+          onPress={onPress}
+          primary
+          disabled
+          mini
+        />
+        <UniversalButtons title={'mini'} onPress={onPress} mini />
+        <UniversalButtons
+          title={'mini + pr + disabled'}
+          onPress={onPress}
+          mini
+          disabled
+          primary
+        />
+        <UniversalButtons
+          title={'mini + dark + pr + round'}
+          onPress={onPress}
+          mini
+          dark
+          rounded
+          primary
+        />
+        <UniversalButtons
+          title={'Pr + round + icon'}
+          onPress={onPress}
+          primary
+          rounded
+          iconStart="play"
+        />
+        <UniversalButtons
+          title={'Pr + round + icon'}
+          onPress={onPress}
+          primary
+          rounded
+          iconStart="basket"
+        />
+        <UniversalButtons
+          title={'Pr + round + 2icons'}
+          onPress={onPress}
+          primary
+          rounded
+          iconStart="basket"
+          iconEnd="arrow"
+        />
+        <UniversalButtons
+          title={'round + 2icons'}
+          onPress={onPress}
+          rounded
+          iconStart="basketSecondary"
+          iconEnd="arrowSecondary"
+        />
+        <UniversalButtons
+          title={'Pr + round + 2icons'}
+          onPress={onPress}
+          primary
+          iconStart="basket"
+          iconEnd="arrow"
+        />
+        <UniversalButtons
+          title={'Pr + round + dark + 2icons'}
+          onPress={onPress}
+          primary
+          dark
+          rounded
+          iconStart="basket"
+          iconEnd="arrow"
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 }
