@@ -4,6 +4,9 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
   },
+  logo: {
+    marginRight: 16,
+  },
   logoContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -17,8 +20,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 48,
     fontFamily: 'Urbanist',
-    color: 'red',
-    marginLeft: 16,
   },
   subText: {
     fontFamily: 'Urbanist',

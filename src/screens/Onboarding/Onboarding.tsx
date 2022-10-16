@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {Text, View, useColorScheme, Image} from 'react-native';
+import React, {useContext, useEffect, useState} from 'react';
+import {Text, View, Image} from 'react-native';
 import styles from './styles';
 import Logo from '../../assets/logo.svg';
 import {useLoader} from '../../components/Loader/Loader';
 import Slides from './components/Slides';
+import {ThemeContext} from '../../../App';
 
 enum STEPS {
   loading = 0,
@@ -11,53 +12,17 @@ enum STEPS {
   slides = 2,
 }
 
-const themes = {
-  [STEPS.loading]: {
-    dark: {
-      color: '#ffffff',
-      backgroundColor: '#181A20',
-    },
-    light: {
-      color: '#212121',
-      backgroundColor: '#fff',
-    },
-  },
-  [STEPS.welcome]: {
-    dark: {
-      color: '#ffffff',
-      backgroundColor: '#181A20',
-      marginLeft: 0,
-    },
-    light: {
-      color: '#246BFD',
-      backgroundColor: '#fff',
-      marginLeft: 0,
-    },
-  },
-  [STEPS.slides]: {
-    dark: {
-      color: '#ffffff',
-      backgroundColor: '#181A20',
-    },
-    light: {
-      color: '#246BFD',
-      backgroundColor: '#fff',
-    },
-  },
-};
-
 const Onboarding = () => {
   const [LoaderComp, setLoader] = useLoader();
-  const [step, setStep] = useState(STEPS.loading);
-  const colorScheme = useColorScheme() || 'light';
-  // const colorScheme = 'light';
+  const [step, setStep] = useState(STEPS.slides);
+  const theme = useContext(ThemeContext);
+
   useEffect(() => {
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
       setStep(STEPS.welcome);
       setTimeout(() => {
-        // setLoader(false);
         setStep(STEPS.slides);
       }, 2500);
     }, 2500);
@@ -67,8 +32,12 @@ const Onboarding = () => {
     [STEPS.loading]: (
       <>
         <View style={styles.logoContainer}>
-          <Logo width={60} height={60} />
-          <Text style={{...styles.text, ...themes[step][colorScheme]}}>
+          <Logo width={60} height={60} style={styles.logo} />
+          <Text
+            style={{
+              ...theme.text.h1,
+              color: theme.colorScheme.logoTextColor,
+            }}>
             Medica
           </Text>
         </View>
@@ -84,15 +53,15 @@ const Onboarding = () => {
         <View style={styles.textContainer}>
           <Text
             style={{
-              ...styles.text,
-              ...themes[step][colorScheme],
+              ...theme.colors,
+              ...theme.text.h1,
             }}>
             Welcome to Medica! 👋
           </Text>
           <Text
             style={{
               ...styles.subText,
-              ...themes[step][colorScheme],
+              ...theme.text.p,
             }}>
             The best online doctor appointment & consultation app of the century
             for your health and medical needs!
@@ -104,7 +73,7 @@ const Onboarding = () => {
   };
 
   return (
-    <View style={{...styles.container, ...themes[step][colorScheme]}}>
+    <View style={{...styles.container, ...theme.colors}}>
       {getStepComponent[step]}
     </View>
   );
