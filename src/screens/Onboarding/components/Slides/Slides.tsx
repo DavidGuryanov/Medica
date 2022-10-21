@@ -1,13 +1,8 @@
 import React, {useState} from 'react';
-import {
-  Image,
-  Text,
-  TouchableOpacity,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {Image, Text, useColorScheme, View} from 'react-native';
 import styles from './styles';
 import Stepper from '../../../../components/Stepper';
+import UniversalButtons from '../../../../components/UniversalButtons';
 
 const slidesData = [
   {
@@ -51,17 +46,18 @@ export const Slides = () => {
           {slidesData[slide].text}
         </Text>
         <Stepper steps={3} current={slide} onChange={setSlide} />
-        <TouchableOpacity
-          style={styles.tempButton}
+        <UniversalButtons
           onPress={() => {
             if (slide < slidesData.length - 1) {
               setSlide(slide + 1);
             } else {
               setSlide(0);
             }
-          }}>
-          <Text style={styles.tempButtonText}>Next</Text>
-        </TouchableOpacity>
+          }}
+          title="Next"
+          rounded
+          primary
+        />
       </View>
     </View>
   );

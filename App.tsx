@@ -1,13 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
 import {
   Button,
@@ -16,8 +6,6 @@ import {
   Text,
   useColorScheme,
   ScrollView,
-  StatusBar,
-  Text,
   View,
 } from 'react-native';
 
@@ -29,6 +17,8 @@ import {
 import Onboarding from './src/screens/Onboarding';
 import {darkTheme, theme} from './src/utils/theme';
 import UniversalButtons from './src/components/UniversalButtons';
+import {SheetManager, SheetProvider} from 'react-native-actions-sheet';
+import './src/components/ActionSheets/sheets';
 
 export type RootStackParamList = {
   Onboarding: undefined;
@@ -43,7 +33,7 @@ type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 function HomeScreen({navigation}: HomeScreenProps) {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: 'green'}}>
       <StatusBar />
       {/* eslint-disable-next-line react-native/no-inline-styles */}
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -57,11 +47,19 @@ function HomeScreen({navigation}: HomeScreenProps) {
         title="Go to Log In"
         onPress={() => navigation.navigate('Log In')}
       />
+      <Button
+        title="Open drawer"
+        onPress={() => {
+          SheetManager.show('example', {
+            payload: {data: 'sup'},
+          });
+        }}
+      />
     </SafeAreaView>
   );
 }
 
-const onPress = () => console.log('');
+const onPress = () => {};
 
 function LogIn({navigation}: SignInScreenProps) {
   return (
@@ -106,11 +104,14 @@ function LogIn({navigation}: SignInScreenProps) {
           disabled
         />
         <UniversalButtons
-          title={'Lessrounded + primary'}
+          title={'Less rounded + primary'}
           onPress={onPress}
           primary
         />
-        <UniversalButtons title={'Lessrounded + secondary'} onPress={onPress} />
+        <UniversalButtons
+          title={'Less rounded + secondary'}
+          onPress={onPress}
+        />
         <UniversalButtons
           title={'Disabled + primary'}
           onPress={onPress}
@@ -125,7 +126,7 @@ function LogIn({navigation}: SignInScreenProps) {
           rounded
         />
         <UniversalButtons
-          title={'Dark + primary + lessrounded'}
+          title={'Dark + primary + less rounded'}
           onPress={onPress}
           dark
           primary
@@ -227,23 +228,27 @@ export const ThemeContext = React.createContext(theme);
 
 const App = () => {
   const colorScheme = useColorScheme() || 'light';
+  console.log(colorScheme);
+
   return (
     <ThemeContext.Provider value={colorScheme === 'light' ? theme : darkTheme}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Onboarding"
-            component={Onboarding}
-            options={{title: 'Onboarding'}}
-          />
-          <Stack.Screen
-            name="Log In"
-            component={LogIn}
-            options={{title: 'Log In'}}
-          />
-          <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <SheetProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen
+              name="Onboarding"
+              component={Onboarding}
+              options={{title: 'Onboarding'}}
+            />
+            <Stack.Screen
+              name="Log In"
+              component={LogIn}
+              options={{title: 'Log In'}}
+            />
+            <Stack.Screen name="Home" component={HomeScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SheetProvider>
     </ThemeContext.Provider>
   );
 };

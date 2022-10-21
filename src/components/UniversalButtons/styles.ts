@@ -1,12 +1,17 @@
 import {StyleSheet} from 'react-native';
 
-export const styles = StyleSheet.create({
-  shadowProp: {
-    shadowColor: '#CCF',
-    shadowOffset: {width: 4, height: 8},
-    shadowOpacity: 0.25,
-    shadowRadius: 24,
+const shadowProp = {
+  shadowColor: 'rgba(36,107,253,0.87)',
+  shadowOffset: {
+    width: 4,
+    height: 8,
   },
+  shadowOpacity: 1,
+  shadowRadius: 5,
+  elevation: 19,
+};
+
+export const styles = StyleSheet.create({
   button: {
     display: 'flex',
     flexDirection: 'row',
@@ -24,9 +29,14 @@ export const styles = StyleSheet.create({
   iconEnd: {
     marginLeft: '2.5%',
   },
-  buttonPrimaryLight: {backgroundColor: '#246BFD'},
+  buttonPrimaryLight: {
+    backgroundColor: '#246BFD',
+    ...shadowProp,
+  },
   buttonSecondaryLight: {backgroundColor: '#E9F0FF'},
-  buttonPrimaryDark: {backgroundColor: '#35383F'},
+  buttonPrimaryDark: {
+    backgroundColor: '#35383F',
+  },
   buttonSecondaryDark: {backgroundColor: '#E9F0FF'},
   rounded: {borderRadius: 100},
   lessRounded: {borderRadius: 16},

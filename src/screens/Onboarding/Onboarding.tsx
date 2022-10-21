@@ -14,7 +14,7 @@ enum STEPS {
 
 const Onboarding = () => {
   const [LoaderComp, setLoader] = useLoader();
-  const [step, setStep] = useState(STEPS.slides);
+  const [step, setStep] = useState(STEPS.loading);
   const theme = useContext(ThemeContext);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Onboarding = () => {
           <Text
             style={{
               ...theme.text.h1,
-              color: theme.colorScheme.logoTextColor,
+              ...theme.colorScheme.logoTextColor,
             }}>
             Medica
           </Text>

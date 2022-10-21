@@ -127,7 +127,14 @@ export const theme = {
     color: palette.primary.p500,
   },
   colorScheme: {
-    logoTextColor: palette.greyscale.g900,
+    logoTextColor: {color: palette.greyscale.g900},
+    itemCard: {
+      backgroundColor: palette.greyscale.g100,
+      color: palette.greyscale.g900,
+    },
+    separator: {
+      backgroundColor: palette.greyscale.g300,
+    },
   },
   text: {
     h1: {
@@ -160,6 +167,117 @@ export const theme = {
       fontWeight: textWeights.bold,
       fontSize: headerSizes.xs,
     },
+    p_XL: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.xl,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.xl,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.xl,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.xl,
+        fontWeight: textWeights.regular,
+      },
+    },
+    p_L: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.l,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.l,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.l,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.l,
+        fontWeight: textWeights.regular,
+      },
+    },
+    p_M: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.m,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.m,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.m,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.m,
+        fontWeight: textWeights.regular,
+      },
+    },
+    p_S: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.s,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.s,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.s,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.s,
+        fontWeight: textWeights.regular,
+      },
+    },
+    p_XS: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.xs,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.xs,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.xs,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.xs,
+        fontWeight: textWeights.regular,
+      },
+    },
+
     header: {
       fontFamily: 'Urbanist',
       headerSize: 40,
@@ -185,7 +303,16 @@ export const darkTheme = {
     color: palette.others.white,
   },
   colorScheme: {
-    logoTextColor: palette.others.white,
+    logoTextColor: {color: palette.others.white},
+    itemCard: {
+      backgroundColor: palette.dark.d2,
+      // backgroundColor: '#1F222A',
+      // color: palette.others.white,
+      color: 'red',
+    },
+    separator: {
+      backgroundColor: palette.dark.d3,
+    },
   },
   text: {
     h1: {
@@ -217,6 +344,116 @@ export const darkTheme = {
       ...commonText,
       fontWeight: textWeights.bold,
       fontSize: headerSizes.xs,
+    },
+    p_XL: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.xl,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.xl,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.xl,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.xl,
+        fontWeight: textWeights.regular,
+      },
+    },
+    p_L: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.l,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.l,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.l,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.l,
+        fontWeight: textWeights.regular,
+      },
+    },
+    p_M: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.m,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.m,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.m,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.m,
+        fontWeight: textWeights.regular,
+      },
+    },
+    p_S: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.s,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.s,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.s,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.s,
+        fontWeight: textWeights.regular,
+      },
+    },
+    p_XS: {
+      bold: {
+        ...commonText,
+        fontSize: textSizes.xs,
+        fontWeight: textWeights.bold,
+      },
+      semi: {
+        ...commonText,
+        fontSize: textSizes.xs,
+        fontWeight: textWeights.semibold,
+      },
+      medium: {
+        ...commonText,
+        fontSize: textSizes.xs,
+        fontWeight: textWeights.medium,
+      },
+      regular: {
+        ...commonText,
+        fontSize: textSizes.xs,
+        fontWeight: textWeights.regular,
+      },
     },
     header: {
       fontFamily: 'Urbanist',
