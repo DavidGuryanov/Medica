@@ -71,7 +71,12 @@ function UniversalButtons({
       disabled={disabled}
       {...props}>
       {iconStart && <Icon type={iconStart} style={styles.iconStart} />}
-      <Text style={[styles.text, !primary && styles.secondaryText]}>
+      <Text
+        style={[
+          styles.text,
+          !primary && styles.secondaryText,
+          dark && styles.text,
+        ]}>
         {title}
       </Text>
       {children}
