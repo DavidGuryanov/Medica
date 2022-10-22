@@ -1,14 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
-import Basket from '../../assets/busket.svg';
-import Arrow from '../../assets/arrow.svg';
-import Play from '../../assets/play.svg';
-import Message from '../../assets/message.svg';
-import Phone from '../../assets/phone.svg';
-import Video from '../../assets/video.svg';
-import BasketSecondary from '../../assets/busketSecondary.svg';
-import ArrowSecondary from '../../assets/arrowSecondary.svg';
 import {styles} from './styles';
+import Icon, {iconVariants} from '../Icon';
 
 type UniversalButtonsProps = {
   onPress: () => void;
@@ -18,30 +11,10 @@ type UniversalButtonsProps = {
   disabled?: boolean;
   dark?: boolean;
   mini?: boolean;
-  iconStart?: keyof typeof icons;
-  iconEnd?: keyof typeof icons;
+  iconStart?: keyof typeof iconVariants;
+  iconEnd?: keyof typeof iconVariants;
   children?: JSX.Element[] | JSX.Element;
-};
-
-const icons = {
-  basket: Basket,
-  arrow: Arrow,
-  play: Play,
-  message: Message,
-  phone: Phone,
-  video: Video,
-  basketSecondary: BasketSecondary,
-  arrowSecondary: ArrowSecondary,
-} as const;
-
-interface TIconProps {
-  type: keyof typeof icons;
   [x: string]: any;
-}
-
-const Icon = ({type, ...props}: TIconProps): JSX.Element => {
-  const IconComponent = icons[type];
-  return <IconComponent {...props} />;
 };
 
 function UniversalButtons({
@@ -55,6 +28,7 @@ function UniversalButtons({
   iconStart,
   iconEnd,
   children,
+  style,
   ...props
 }: UniversalButtonsProps): JSX.Element {
   return (
@@ -66,6 +40,7 @@ function UniversalButtons({
         disabled && styles.disabled,
         dark && styles.buttonPrimaryDark,
         mini && styles.miniButton,
+        style,
       ]}
       onPress={onPress}
       disabled={disabled}
